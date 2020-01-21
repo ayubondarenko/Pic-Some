@@ -10,7 +10,9 @@ module.exports = {
   "globals": {
     "it": true,
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "HtmlWebpackPlugin": "readonly",
+    "webpack": "readonly",
   },
   "parserOptions": {
     "ecmaFeatures": {

@@ -1,28 +1,25 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const webpack = require('webpack');
 
 module.exports = {
   entry: ['react-hot-loader/patch', './src'],
-  // entry: {
-  //   app: './src/index.jsx',
-  //   // vendor: [
-  //   //     // 'axios',
-  //   //     // 'bootstrap',
-  //   //     'react',
-  //   //     'react-dom',
-  //   //     // 'react-redux',
-  //   //     // 'redux',
-  //   //     // 'redux-saga',
-  //   // ],
-  // },
+
   output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'index_bundle.js',
-    publicPath: '/',
-    sourceMapFilename: 'bundle.map.js',
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      maxSize: 244000,
+
+    },
   },
   devServer: {
     historyApiFallback: true,
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
   },
   module: {
     rules: [{

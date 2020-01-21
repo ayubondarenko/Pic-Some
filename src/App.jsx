@@ -8,7 +8,6 @@ import Photos from './pages/Photos';
 function App() {
 	return (<div>
 		<Header/>
-		<h1>Home Page</h1>
 		<Switch>
 			<Route exact path="/"><Photos/></Route>
 			<Route path="/"><Cart/></Route>

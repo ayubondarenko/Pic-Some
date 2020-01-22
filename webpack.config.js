@@ -13,7 +13,6 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       maxSize: 244000,
-
     },
   },
   devServer: {
@@ -22,7 +21,8 @@ module.exports = {
     compress: true,
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -32,6 +32,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: 'file-loader?name=[name].[ext]', // <-- retain original file name
       },
     ],
   },

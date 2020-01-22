@@ -45,5 +45,6 @@ module.exports = {
     "object-curly-spacing": "off",
     "react/jsx-curly-spacing": "off",
     "arrow-parens": "off",
+    "operator-linebreak": "off",
   }
 };

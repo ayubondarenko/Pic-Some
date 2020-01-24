@@ -12,8 +12,7 @@ function Photos() {
             <Image
               key={p.id}
               className={getClass(i)}
-              url={p.url}
-              alt="Smiley face"
+              photo={p}
             />
           ))
         : null}

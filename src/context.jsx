@@ -12,7 +12,7 @@ function ContextProvider({ children }) {
   useEffect(() => {
     fetch(URL)
       .then(response => response.json())
-      .then(data => setPhotos(data));
+      .then(data => setPhotos(data.map(p => ({ ...p, price: 5.99 }))));
   }, []);
 
   function toggleFavorite(id) {
@@ -35,7 +35,13 @@ function ContextProvider({ children }) {
 
   return (
     <Context.Provider
-      value={{ photos, toggleFavorite, cartItems, addPhotoToCartItems, removePhotoFromCartItems }}
+      value={{
+        photos,
+        toggleFavorite,
+        cartItems,
+        addPhotoToCartItems,
+        removePhotoFromCartItems,
+      }}
     >
       {children}
     </Context.Provider>

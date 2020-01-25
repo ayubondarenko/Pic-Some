@@ -1,12 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Context } from '../context';
 import CartItem from '../components/CartItem';
 
 function Cart() {
   const { cartItems, removePhotoFromCartItems } = useContext(Context);
-  const totalVal = cartItems.reduce((s,p) => s + p.price ,0);
-  const total =totalVal.toLocaleString("ru-RU", {style: "currency", currency: "RUB"});
-  const [totalPrice] = useState(total);
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(()=> {
+    const totalVal = cartItems.reduce((s,p) => s + p.price ,0);
+    const total =totalVal.toLocaleString("ru-RU", {style: "currency", currency: "RUB"});
+    setTotalPrice(total);
+  }, [cartItems])
   const cartItemElements = cartItems.map(item => (
     <CartItem
       key={item.id}

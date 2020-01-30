@@ -33,6 +33,10 @@ function ContextProvider({ children }) {
     setCartItems(prevCartItems => prevCartItems.filter(p => p.id !== photo.id));
   };
 
+  function remptyCartItems() {
+    setCartItems([]);
+  }
+
   return (
     <Context.Provider
       value={{
@@ -41,6 +45,7 @@ function ContextProvider({ children }) {
         cartItems,
         addPhotoToCartItems,
         removePhotoFromCartItems,
+        remptyCartItems,
       }}
     >
       {children}

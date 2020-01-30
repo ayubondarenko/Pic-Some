@@ -1,18 +1,27 @@
-import React from "react"
+import React from 'react';
 import PropTypes from 'prop-types';
+import useHover from '../hooks/useHover.jsx';
 
-function CartItem({item, removeItem}) {
-    return (
-        <div className="cart-item">
-            <i className="ri-delete-bin-line"
-              onClick={()=>removeItem(item)} />
-            <img src={item.url} width="130px" />
-            <p>{item.price.toLocaleString("ru-RU", {style: "currency", currency: "RUB"})}</p >
-        </div>
-    )
+function CartItem({ item, removeItem }) {
+  // const [isHover, setIsHover] = useState(false);
+  const [isHover, delRef] = useHover();
+  const delIconClass = `ri-delete-bin-${isHover ? 'fill' : 'line'}`;
+
+  return (
+    <div ref={delRef} className="cart-item">
+      <i className={delIconClass} onClick={() => removeItem(item)} />
+      <img alt="???" src={item.url} width="130px" />
+      <p>
+        {item.price.toLocaleString('ru-RU', {
+          style: 'currency',
+          currency: 'RUB',
+        })}
+      </p>
+    </div>
+  );
 }
 CartItem.propTypes = {
-  removeItem:PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
   item: PropTypes.shape({
     url: PropTypes.string.isRequired,
     isFavorite: PropTypes.bool,
@@ -20,4 +29,4 @@ CartItem.propTypes = {
   }).isRequired,
 };
 
-export default CartItem
+export default CartItem;

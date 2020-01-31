@@ -17,8 +17,8 @@ function useHover() {
     ref.current.addEventListener('mouseenter', onHover);
     ref.current.addEventListener('mouseleave', offHover);
     return () => {
-      ref.current.removeListener('mouseenter', onHover);
-      ref.current.removEventListener('mouseleave', offHover);
+      ref.current.removeEventListener('mouseenter', onHover);
+      ref.current.removeEventListener('mouseleave', offHover);
     };
   }, []);
 

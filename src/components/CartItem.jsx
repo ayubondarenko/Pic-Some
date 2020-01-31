@@ -8,8 +8,8 @@ function CartItem({ item, removeItem }) {
   const delIconClass = `ri-delete-bin-${isHover ? 'fill' : 'line'}`;
 
   return (
-    <div ref={delRef} className="cart-item">
-      <i className={delIconClass} onClick={() => removeItem(item)} />
+    <div  className="cart-item">
+      <i ref={delRef} className={delIconClass} onClick={() => removeItem(item)} />
       <img alt="???" src={item.url} width="130px" />
       <p>
         {item.price.toLocaleString('ru-RU', {

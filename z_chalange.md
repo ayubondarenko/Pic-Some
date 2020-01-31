@@ -111,3 +111,10 @@ Filled trash icon to use when hovering:
 <i className="ri-delete-bin-fill"></i>
 Empty trash icon to use when NOT hovering:
 <i className="ri-delete-bin-line"></i>
+
+# Challenge: 19
+
+Using useEffect and useRef, make it so when this hook first loads,
+it sets up the "mouseenter" and "mouseleave" event listeners on the ref.
+ Remember: the ref.current will represent the DOM node, which is where you can
+ do imperative commands like `.addEventListener` and `removeEventListener`.
